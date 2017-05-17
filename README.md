@@ -1,9 +1,6 @@
 SPINNBOT
 ========
 
-LOLBOT
-========
-
 Chat bot for VK social network
 
 ## Installations
