@@ -4,6 +4,10 @@
 import time
 import vk_api
 
+# The function which checks inside of the main code return value.
+def check(hi):
+    return "Hi man! Do you want to buy a spinner? If yes, type 1."
+
 def start():
     # We're using special token code which you can find in VK page setting
     vk = vk_api.VkApi(token='77196449c7b26ffa9777e3c9e85b85debc05108dae9a672c6bcbb8468a1efa66fd06e4d947aa8ab24745e')
@@ -15,6 +19,7 @@ def start():
     def write_msg(user_id, s):
         vk.method('messages.send', {'user_id':user_id,'message':s})
 
+
     # If user starts writing something, bot understand that and ready to answer after the message.
 
     while True:
@@ -23,8 +28,9 @@ def start():
             values['last_message_id'] = response['items'][0]['id']
         for item in response['items']:
             if response['items'][0]['body'] == 'Hi':
+                check(response['items'][0]['body'])
                 write_msg(item[u'user_id'], u'Hi man! Do you want to buy a spinner? If yes, type 1.')
-                return "Hi man! Do you want to buy a spinner? If yes, type 1."
+#               return "Hi man! Do you want to buy a spinner? If yes, type 1."
             elif response['items'][0]['body'] == '1':
                 write_msg(item[u'user_id'],u'Great idea! Do you thought which material do you like the most? Maybe, plastic or metal? Type it.')
             elif response['items'][0]['body'] == 'plastic':
