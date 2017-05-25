@@ -5,11 +5,23 @@ import time
 import vk_api
 
 
-def check(hi): #Rewrite function and start use it code below zdes zamena
-    if hi == "Hi":
-        return True
+def check(test): #Rewrites the function and starts using code below
+    if test == "Hi":  # Check if response correct zdes zamena
+        return "Hi man! Do you want to buy a spinner? If yes, type 1."
+    elif test == '1':
+        return "Great idea! Do you thought which material do you like the most? Maybe, plastic or metal? Type it."
+    elif test == 'plastic':
+        return "Plastic does not mean cheap! Tell me, what cost do you want a spinner? Type 5, 9 or 10."
+    elif test == '5':
+        return "Wow, dude, look what you found! Spinner like you wanted - plastic and for 5 euros. Wait, but the color? Type black, blue or white."
+    elif test == 'blue':
+        return "Fuh, it was not easy, but I found it. Blue plastic spinner for 5 euros. Come to our site and buy it. Right now. JUST DO IT! http://spinn.ee/toode/spinner-1/"
+    elif test == 'black':
+        return "Fuh, it was not easy, but I found it. Black plastic spinner for 5 euros. Come to our site and buy it. Right now. JUST DO IT! http://spinn.ee/toode/spinner-1/"
+    elif test == 'white':
+        return "Fuh, it was not easy, but I found it. White plastic spinner for 5 euros. Come to our site and buy it. Right now. JUST DO IT! http://spinn.ee/toode/spinner-1/"
     else:
-        return False
+         return "Sorry, I dont understand you. Try ask again"
 
 def start():
     # We're using special token code which you can find in VK page setting
@@ -48,6 +60,3 @@ def start():
             else:
                 write_msg(item[u'user_id'],u'Sorry, I dont understand you. Try ask again')
         time.sleep(1)
-
-if __name__ == '__main__':
-    start()

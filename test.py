@@ -6,9 +6,10 @@ from vkbot import check
 
 class Test(unittest.TestCase):
     def test_value(self):
-        response = "Hi"
-        answer = check(response)
-        self.assertEqual(answer, True)
+        response = "Hi man! Do you want to buy a spinner? If yes, type 1."
+        answer = check("Hi")
+        print (answer)
+        self.assertEqual(answer, response)
 
 
 
