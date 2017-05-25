@@ -4,9 +4,12 @@
 import time
 import vk_api
 
-# The function which checks inside of the main code return value.
-def check(hi):
-    return "Hi man! Do you want to buy a spinner? If yes, type 1."
+
+def check(hi): #Rewrite function and start use it code below zdes zamena
+    if hi == "Hi":
+        return True
+    else:
+        return False
 
 def start():
     # We're using special token code which you can find in VK page setting
@@ -27,8 +30,7 @@ def start():
         if response['items']:
             values['last_message_id'] = response['items'][0]['id']
         for item in response['items']:
-            if response['items'][0]['body'] == 'Hi':
-                check(response['items'][0]['body'])
+            if check(response['items'][0]['body']): #Check if response correct zdes zamena
                 write_msg(item[u'user_id'], u'Hi man! Do you want to buy a spinner? If yes, type 1.')
 #               return "Hi man! Do you want to buy a spinner? If yes, type 1."
             elif response['items'][0]['body'] == '1':
