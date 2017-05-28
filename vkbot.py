@@ -28,6 +28,7 @@ def start():
     vk = vk_api.VkApi(token='77196449c7b26ffa9777e3c9e85b85debc05108dae9a672c6bcbb8468a1efa66fd06e4d947aa8ab24745e')
     vk.auth()
 
+
     # Time debuggig (attempt to humanize the bot)
     values = {'out': 0,'count': 100,'time_offset': 60}
 
