@@ -42,21 +42,8 @@ def start():
         if response['items']:
             values['last_message_id'] = response['items'][0]['id']
         for item in response['items']:
-            if check(response['items'][0]['body']): #Check if response correct zdes zamena
-                write_msg(item[u'user_id'], u'Hi man! Do you want to buy a spinner? If yes, type 1.')
-#               return "Hi man! Do you want to buy a spinner? If yes, type 1."
-            elif response['items'][0]['body'] == '1':
-                write_msg(item[u'user_id'],u'Great idea! Do you thought which material do you like the most? Maybe, plastic or metal? Type it.')
-            elif response['items'][0]['body'] == 'plastic':
-                write_msg(item[u'user_id'],u'Plastic does not mean cheap! Tell me, what cost do you want a spinner? Type 5, 9 or 10.')
-            elif response['items'][0]['body'] == '5':
-                write_msg(item[u'user_id'],u'Wow, dude, look what you found! Spinner like you wanted - plastic and for 5 euros. Wait, but the color? Type black, blue or white.')
-            elif response['items'][0]['body'] == 'blue':
-                write_msg(item[u'user_id'],u'Fuh, it was not easy, but I found it. Blue plastic spinner for 5 euros. Come to our site and buy it. Right now. JUST DO IT! http://spinn.ee/toode/spinner-1/')
-            elif response['items'][0]['body'] == 'black':
-                write_msg(item[u'user_id'],u'Fuh, it was not easy, but I found it. Black plastic spinner for 5 euros. Come to our site and buy it. Right now. JUST DO IT! http://spinn.ee/toode/spinner-1/')
-            elif response['items'][0]['body'] == 'white':
-                write_msg(item[u'user_id'],u'Fuh, it was not easy, but I found it. White plastic spinner for 5 euros. Come to our site and buy it. Right now. JUST DO IT! http://spinn.ee/toode/spinner-1/')
-            else:
-                write_msg(item[u'user_id'],u'Sorry, I dont understand you. Try ask again')
+            write_msg(item[u'user_id'], check(response['items'][0]['body']))
         time.sleep(1)
+
+if __name__ == '__main__':
+    start()
